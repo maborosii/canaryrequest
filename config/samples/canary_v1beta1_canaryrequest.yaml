@@ -1,0 +1,14 @@
+apiVersion: canary.maborosii.com/v1beta1
+kind: CanaryRequest
+metadata:
+  labels:
+    app.kubernetes.io/name: canaryrequest
+    app.kubernetes.io/instance: canaryrequest-sample
+    app.kubernetes.io/part-of: canary
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: canary
+  name: canaryrequest-sample
+spec:
+  weight: 2
+  image: "nginx:customed"
+  refDeployment: "nginx"

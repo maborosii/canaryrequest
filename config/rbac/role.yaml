@@ -1,0 +1,52 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - canary.maborosii.com
+  resources:
+  - canaryrequests
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - canary.maborosii.com
+  resources:
+  - canaryrequests/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - canary.maborosii.com
+  resources:
+  - canaryrequests/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - v1
+  resources:
+  - deployment
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - v1
+  resources:
+  - pod
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
